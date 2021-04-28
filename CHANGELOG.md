@@ -1,3 +1,7 @@
+## [Unreleased] (April 28, 2021)
+
+Added non_triggers as an input that allows users to store values to state for destroy time provisioners to access, but do not trigger a recreate when changed.
+
 ## 3.1.0 (February 19, 2021)
 
 Binary releases of this provider now include the darwin-arm64 platform. This version contains no further changes.

@@ -11,7 +11,9 @@ func resource() *schema.Resource {
 	return &schema.Resource{
 		Description: `The ` + "`null_resource`" + ` resource implements the standard resource lifecycle but takes no further action.
 
-The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values that, when changed, will cause the resource to be replaced.`,
+The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values that, when changed, will cause the resource to be replaced.
+
+The ` + "`non_triggers`" + ` argument allows specifying an arbitrary set of values that, when changed, will not cause the resource to be replaced.`,
 
 		Create: resourceCreate,
 		Read:   resourceRead,
@@ -33,7 +35,7 @@ The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values t
 			},
 
 			"non_triggers": {
-				Description: "A map of arbitrary strings that, when changed, will NOT force the null resource to be replaced.",
+				Description: "A map of arbitrary strings that, when changed, will not force the null resource to be replaced and not re-run any associated provisioners.",
 				Type:        schema.TypeMap,
 				Optional:    true,
 			},

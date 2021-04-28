@@ -5,6 +5,7 @@ subcategory: ""
 description: |-
   The null_resource resource implements the standard resource lifecycle but takes no further action.
   The triggers argument allows specifying an arbitrary set of values that, when changed, will cause the resource to be replaced.
+  The non_triggers argument allows specifying an arbitrary set of values that, when changed, will not cause the resource to be replaced
 ---
 
 # null_resource
@@ -12,6 +13,8 @@ description: |-
 The `null_resource` resource implements the standard resource lifecycle but takes no further action.
 
 The `triggers` argument allows specifying an arbitrary set of values that, when changed, will cause the resource to be replaced.
+
+The `non_triggers` argument allows specifying an arbitrary set of values that, when changed, will not cause the resource to be replaced.
 
 ## Example Usage
 
@@ -56,6 +59,8 @@ resource "null_resource" "cluster" {
 ### Optional
 
 - **triggers** (Map of String) A map of arbitrary strings that, when changed, will force the null resource to be replaced, re-running any associated provisioners.
+
+- **non_triggers** (Map of String) A map of arbitrary strings that, when changed, will not force the null resource to be replaced, and not re-run any associated provisioners.
 
 ### Read-Only
 
