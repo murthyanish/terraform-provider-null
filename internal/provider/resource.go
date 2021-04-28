@@ -15,6 +15,7 @@ The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values t
 
 		Create: resourceCreate,
 		Read:   resourceRead,
+		Update: resourceUpdate,
 		Delete: resourceDelete,
 
 		Schema: map[string]*schema.Schema{
@@ -30,6 +31,12 @@ The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values t
 				Computed:    true,
 				Type:        schema.TypeString,
 			},
+
+			"non_triggers": {
+				Description: "A map of arbitrary strings that, when changed, will NOT force the null resource to be replaced.",
+				Type:        schema.TypeMap,
+				Optional:    true,
+			},
 		},
 	}
 }
@@ -41,6 +48,10 @@ func resourceCreate(d *schema.ResourceData, meta interface{}) error {
 
 func resourceRead(d *schema.ResourceData, meta interface{}) error {
 	return nil
+}
+
+func resourceUpdate(d *schema.ResourceData, meta interface{}) error {
+	return resourceRead(d, meta)
 }
 
 func resourceDelete(d *schema.ResourceData, meta interface{}) error {
