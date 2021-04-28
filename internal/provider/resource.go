@@ -30,6 +30,13 @@ The ` + "`triggers`" + ` argument allows specifying an arbitrary set of values t
 				Computed:    true,
 				Type:        schema.TypeString,
 			},
+
+			"static_values": {
+				Description: "A map of arbitrary strings that, when changed, will NOT force the null resource to be replaced.",
+				Type:        schema.TypeMap,
+				Optional:    true,
+				ForceNew:    false,
+			}
 		},
 	}
 }
